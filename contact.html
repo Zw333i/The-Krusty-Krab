@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - The Krusty Krab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .sketchfab-container {
+            padding: 0;
+            width: 100%;
+            height: 600px;
+        }
+        .sketchfab-embed-wrapper {
+            width: 100%;
+            height: 100%;
+        }
+        .sketchfab-embed-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+        }
+        .sketchfab-embed-wrapper p {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .sketchfab-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ocean-background">
+        <img src="images/ray.png" alt="Ray" class="ray-image">
+        <div class="bubbles-container"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-left">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+
+            <div class="logo-center">
+                <img src="https://static.wikia.nocookie.net/logopedia/images/8/8a/KK_main_logo.png" alt="Krusty Krab Logo" class="logo-img">
+                <span class="logo-text">Krusty Krab</span>
+            </div>
+
+            <ul class="nav-right">
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+
+            <div class="hamburger-menu">
+                <button class="hamburger-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="menu-section">
+        <div class="container">
+            <div class="menu-category">
+                <h2 class="line-title">📧 Send Us A Message</h2>
+                <div style="padding: 20px;">
+                    <form id="contactForm" style="display: grid; gap: 20px;">
+                        <div style="display: grid; gap: 8px;">
+                            <label for="name" style="color: white; font-weight: 600; font-size: 1rem;">Your Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your name" 
+                                style="padding: 12px; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.3); 
+                                background: rgba(255, 255, 255, 0.1); color: white; font-size: 1rem; font-family: 'Poppins', sans-serif;">
+                        </div>
+                        <div style="display: grid; gap: 8px;">
+                            <label for="email" style="color: white; font-weight: 600; font-size: 1rem;">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com" 
+                                style="padding: 12px; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.3); 
+                                background: rgba(255, 255, 255, 0.1); color: white; font-size: 1rem; font-family: 'Poppins', sans-serif;">
+                        </div>
+                        <div style="display: grid; gap: 8px;">
+                            <label for="phone" style="color: white; font-weight: 600; font-size: 1rem;">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" 
+                                style="padding: 12px; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.3); 
+                                background: rgba(255, 255, 255, 0.1); color: white; font-size: 1rem; font-family: 'Poppins', sans-serif;">
+                        </div>
+                        <div style="display: grid; gap: 8px;">
+                            <label for="subject" style="color: white; font-weight: 600; font-size: 1rem;">Subject *</label>
+                            <input type="text" id="subject" name="subject" required placeholder="What's this about?" 
+                                style="padding: 12px; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.3); 
+                                background: rgba(255, 255, 255, 0.1); color: white; font-size: 1rem; font-family: 'Poppins', sans-serif;">
+                        </div>
+                        <div style="display: grid; gap: 8px;">
+                            <label for="message" style="color: white; font-weight: 600; font-size: 1rem;">Message *</label>
+                            <textarea id="message" name="message" required placeholder="Tell us what's on your mind..." rows="6"
+                                style="padding: 12px; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.3); 
+                                background: rgba(255, 255, 255, 0.1); color: white; font-size: 1rem; font-family: 'Poppins', sans-serif; resize: vertical;"></textarea>
+                        </div>
+                        <button type="submit" 
+                            style="padding: 15px 30px; background: linear-gradient(135deg, #FF6F61, #FF8F81); 
+                            color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; 
+                            cursor: pointer; transition: all 0.3s ease; font-family: 'Poppins', sans-serif;">
+                            Send Message
+                        </button>
+                    </form>
+                    <div id="formResponse" style="margin-top: 20px; padding: 15px; border-radius: 8px; display: none;"></div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h2 class="line-title">📍 Contact Information</h2>
+                <div style="padding: 40px; color: white;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px;">
+  
+                        <div style="background: linear-gradient(135deg, rgba(255, 111, 97, 0.3), rgba(255, 111, 97, 0.1)); padding: 30px; border-radius: 16px; border: 2px solid rgba(255, 255, 255, 0.3); text-align: center;">
+                            <div style="margin-bottom: 20px;">
+                                <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="50" cy="45" r="20" stroke="white" stroke-width="4" fill="none"/>
+                                    <circle cx="50" cy="45" r="8" fill="white"/>
+                                    <path d="M50 65 L50 85 M40 75 L50 85 L60 75" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Location</h3>
+                            <p style="font-size: 1.1rem; line-height: 1.6;">
+                                <strong>9091 Gagalangin Tondo Manila</strong><br>
+                                Bikini Bottom, Pacific Ocean
+                            </p>
+                        </div>
+
+                        <div style="background: linear-gradient(135deg, rgba(0, 119, 182, 0.3), rgba(0, 119, 182, 0.1)); padding: 30px; border-radius: 16px; border: 2px solid rgba(255, 255, 255, 0.3); text-align: center;">
+                            <div style="margin-bottom: 20px;">
+                                <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="50" cy="50" r="35" stroke="white" stroke-width="4" fill="none"/>
+                                    <path d="M50 30 L50 50 L65 65" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Business Hours</h3>
+                            <p style="font-size: 1.05rem; line-height: 1.8;">
+                                <strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM<br>
+                                <strong>Saturday:</strong> 10:00 AM - 5:00 PM<br>
+                                <strong>Sunday:</strong> Closed<br>
+                                <em style="color: #ff202b; margin-top: 10px; display: block;">We're closed on Sundays!</em>
+                            </p>
+                        </div>
+
+                        <div style="background: linear-gradient(135deg, rgba(255, 253, 241, 0.3), rgba(255, 215, 0, 0.1)); padding: 30px; border-radius: 16px; border: 2px solid rgba(255, 255, 255, 0.3); text-align: center;">
+                            <div style="margin-bottom: 20px;">
+                                <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="20" y="30" width="60" height="50" rx="5" stroke="white" stroke-width="4" fill="none"/>
+                                    <path d="M20 40 L50 60 L80 40" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                </svg>
+                            </div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Get In Touch</h3>
+                            <p style="font-size: 1.05rem; line-height: 1.8;">
+                                <strong>Phone:</strong> (555) KRAB-CASH<br>
+                                <strong>Email:</strong> mrkrabs@krustykrab.bb<br>
+                                <strong>Business:</strong> owner@krustykrab.bb
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-category">
+                <h2 class="line-title">🦀 Step Into Our World!</h2>
+                <div class="sketchfab-container">
+                    <div class="sketchfab-embed-wrapper"> 
+                        <iframe title="The Krusty Krab" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/e109df8b1cb1487dbf2553e5e2d7eff1/embed?autostart=1&preload=1&transparent=1"> </iframe> 
+                        <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #ffffff; margin-top: 15px;"> 
+                            <a href="https://sketchfab.com/3d-models/the-krusty-krab-e109df8b1cb1487dbf2553e5e2d7eff1?utm_medium=embed&utm_campaign=share-popup&utm_content=e109df8b1cb1487dbf2553e5e2d7eff1" target="_blank" rel="nofollow" style="font-weight: bold; color: #ffffff;"> The Krusty Krab </a> by <a href="https://sketchfab.com/Mrlunettes?utm_medium=embed&utm_campaign=share-popup&utm_content=e109df8b1cb1487dbf2553e5e2d7eff1" target="_blank" rel="nofollow" style="font-weight: bold; color: #ffffff;"> Mrlunettes </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=e109df8b1cb1487dbf2553e5e2d7eff1" target="_blank" rel="nofollow" style="font-weight: bold; color: #ffffff;">Sketchfab</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="sea-stars">
+            <img src="images/yellow.png" alt="Yellow Star" class="sea-star" style="--random-left: 8%; --random-top: 15%; --random-delay: 0s;">
+            <img src="images/violet.png" alt="Violet Star" class="sea-star" style="--random-left: 75%; --random-top: 25%; --random-delay: 0.3s;">
+            <img src="images/orange.png" alt="Orange Star" class="sea-star" style="--random-left: 12%; --random-top: 65%; --random-delay: 0.6s;">
+            <img src="images/yellow.png" alt="Yellow Star" class="sea-star" style="--random-left: 85%; --random-top: 55%; --random-delay: 0.9s;">
+            <img src="images/violet.png" alt="Violet Star" class="sea-star" style="--random-left: 25%; --random-top: 40%; --random-delay: 1.2s;">
+            <img src="images/orange.png" alt="Orange Star" class="sea-star" style="--random-left: 70%; --random-top: 70%; --random-delay: 1.5s;">
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())  
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+                
+                setTimeout(() => {
+                    const scripts = document.getElementById('footer-placeholder').getElementsByTagName('script');
+                    for (let script of scripts) {
+                        eval(script.innerHTML);
+                    }
+                }, 100);
+            })
+            .catch(error => console.error('Error loading footer:', error));
+
+        const hamburgerToggle = document.querySelector('.hamburger-toggle');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        hamburgerToggle.addEventListener('click', () => {
+            hamburgerToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+    </script>
+</body>
+</html>
