@@ -789,6 +789,181 @@ html, body {
     opacity: 1;
 }
 
+/* Contact Form Styles */
+.contact-form-wrapper {
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-form {
+    display: grid;
+    gap: 20px;
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.form-group label {
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #FF6F61, #FF8F81);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #FF8F81, #FF6F61);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4);
+}
+
+.form-response {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    display: none;
+}
+
+/* Contact Information Grid */
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    padding: 40px;
+    color: white;
+}
+
+.contact-info-card {
+    background: linear-gradient(135deg, rgba(255, 111, 97, 0.3), rgba(255, 111, 97, 0.1));
+    padding: 30px;
+    border-radius: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.contact-info-card:nth-child(2) {
+    background: linear-gradient(135deg, rgba(0, 119, 182, 0.3), rgba(0, 119, 182, 0.1));
+}
+
+.contact-info-card:nth-child(3) {
+    background: linear-gradient(135deg, rgba(255, 253, 241, 0.3), rgba(255, 215, 0, 0.1));
+}
+
+.contact-info-card:hover {
+    transform: translateY(-5px);
+}
+
+.contact-info-card .icon-wrapper {
+    margin-bottom: 20px;
+}
+
+.contact-info-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.contact-info-card p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* Large Desktop/Monitor Optimization (1920px and above) */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1800px;
+    }
+
+    .menu-section, .content-section {
+        padding: 140px 80px 80px;
+    }
+
+    .line-title, .section-title {
+        font-size: 3rem;
+    }
+
+    .custom-carousel .item {
+        width: 380px;
+        height: 480px;
+    }
+
+    .custom-carousel .item.active {
+        width: 600px;
+    }
+
+    .item-desc h3 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .item-desc p {
+        font-size: 18px;
+    }
+
+    .crew-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 100px 50px;
+    }
+
+    .story-text p {
+        font-size: 1.2rem;
+    }
+
+    .card-text {
+        font-size: 1.15rem;
+    }
+}
+
 /* Floating Bubbles */
 .bubble {
     position: fixed;
@@ -987,7 +1162,53 @@ html, body {
     }
 }
 
-/* Responsive */
+/* large monitor */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1800px;
+    }
+
+    .menu-section, .content-section {
+        padding: 140px 80px 80px;
+    }
+
+    .line-title, .section-title {
+        font-size: 3rem;
+    }
+
+    .custom-carousel .item {
+        width: 380px;
+        height: 480px;
+    }
+
+    .custom-carousel .item.active {
+        width: 600px;
+    }
+
+    .item-desc h3 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .item-desc p {
+        font-size: 18px;
+    }
+
+    .crew-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 100px 50px;
+    }
+
+    .story-text p {
+        font-size: 1.2rem;
+    }
+
+    .card-text {
+        font-size: 1.15rem;
+    }
+}
+
+/* mobile responsive */
 @media (max-width: 768px) {
     .nav-left, .nav-right {
         display: none;
@@ -1014,7 +1235,6 @@ html, body {
         font-size: 2rem;
     }
 
-    /* MODIFIED CAROUSEL FOR TABLETS */
     .custom-carousel .item {
         width: 280px !important;
         height: 350px;
@@ -1044,13 +1264,39 @@ html, body {
         gap: 60px 0;
     }
 
-    /* Make material cards bigger on tablet */
     .material-card {
         padding-bottom: calc(110% - 16px);
     }
+
+    .sea-star {
+        width: 60px;
+    }
+
+    .galley-grub-title {
+        font-size: 3.5rem;
+        letter-spacing: 5px;
+    }
+
+    .contact-info-grid {
+        padding: 30px 20px;
+        gap: 30px;
+    }
 }
 
+/* iPhone 11, Android Phones */
 @media (max-width: 480px) {
+    .navbar {
+        padding: 1rem 1rem;
+    }
+
+    .logo-img {
+        height: 40px;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
     .line-title, .section-title {
         font-size: 1.5rem;
     }
@@ -1112,23 +1358,174 @@ html, body {
         line-height: 1.5;
     }
 
-    @media (max-width: 360px) {
-        .custom-carousel .item {
-            width: 220px !important;
-            height: 300px;
-        }
+    .sea-star {
+        width: 50px;
+    }
 
-        .custom-carousel .item.active {
-            width: 240px !important;
-            height: 320px;
-        }
+    .galley-grub-title {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+    }
 
-        .item-desc h3 {
-            font-size: 16px;
-        }
+    .menu-list-box {
+        padding: 20px 15px;
+    }
 
-        .item-desc p {
-            font-size: 12px;
-        }
+    .menu-item-name,
+    .menu-item-price {
+        font-size: 1rem;
+    }
+
+    .contact-form-wrapper {
+        padding: 15px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    .submit-btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+
+    .story-text {
+        font-size: 1rem;
+    }
+
+    .card-text {
+        font-size: 0.95rem;
+    }
+
+    .ray-image {
+        width: 500px;
+    }
+}
+
+/* Small Android Phones */
+@media (max-width: 360px) {
+    .custom-carousel .item {
+        width: 220px !important;
+        height: 300px;
+    }
+
+    .custom-carousel .item.active {
+        width: 240px !important;
+        height: 320px;
+    }
+
+    .item-desc h3 {
+        font-size: 16px;
+    }
+
+    .item-desc p {
+        font-size: 12px;
+    }
+
+    .galley-grub-title {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+
+    .logo-text {
+        font-size: 1rem;
+    }
+
+    .sea-star {
+        width: 40px;
+    }
+}
+
+/* iPad Landscape */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .menu-section, .content-section {
+        padding: 100px 40px 50px;
+    }
+
+    .custom-carousel .item {
+        width: 300px !important;
+        height: 380px;
+    }
+
+    .custom-carousel .item.active {
+        width: 450px !important;
+        height: 420px;
+    }
+
+    .crew-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 70px 40px;
+    }
+
+    .mission-vision-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .galley-grub-title {
+        font-size: 4rem;
+    }
+}
+
+/* iPad Portrait */
+@media (min-width: 768px) and (max-width: 834px) and (orientation: portrait) {
+    .menu-section, .content-section {
+        padding: 110px 30px 50px;
+    }
+
+    .custom-carousel .item {
+        width: 300px !important;
+        height: 370px;
+    }
+
+    .custom-carousel .item.active {
+        width: 450px !important;
+        height: 410px;
+    }
+
+    .crew-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 80px 30px;
+    }
+
+    .galley-grub-title {
+        font-size: 4.5rem;
+        letter-spacing: 7px;
+    }
+
+    .sea-star {
+        width: 70px;
+    }
+}
+
+/* iPhone 11 Pro Max Landscape */
+@media (max-width: 896px) and (orientation: landscape) {
+    .menu-section, .content-section {
+        padding: 90px 30px 40px;
+    }
+
+    .custom-carousel .item {
+        width: 240px !important;
+        height: 300px;
+    }
+
+    .custom-carousel .item.active {
+        width: 320px !important;
+        height: 330px;
+    }
+
+    .crew-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 20px;
+    }
+
+    .material-card {
+        padding-bottom: calc(90% - 16px);
+        margin-bottom: 5em;
+    }
+
+    .galley-grub-title {
+        font-size: 3rem;
     }
 }

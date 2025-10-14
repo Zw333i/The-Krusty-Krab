@@ -418,10 +418,55 @@ body {
     }
 }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-    .nav-left,
-    .nav-right {
+/* Large Monitor*/
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1800px;
+    }
+
+    .menu-section, .content-section {
+        padding: 140px 80px 80px;
+    }
+
+    .line-title, .section-title {
+        font-size: 3rem;
+    }
+
+    .custom-carousel .item {
+        width: 380px;
+        height: 480px;
+    }
+
+    .custom-carousel .item.active {
+        width: 600px;
+    }
+
+    .item-desc h3 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .item-desc p {
+        font-size: 18px;
+    }
+
+    .crew-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 100px 50px;
+    }
+
+    .story-text p {
+        font-size: 1.2rem;
+    }
+
+    .card-text {
+        font-size: 1.15rem;
+    }
+}
+
+/* Responsive - Tablet */
+@media (max-width: 768px) {
+    .nav-left, .nav-right {
         display: none;
     }
 
@@ -476,9 +521,31 @@ body {
         order: 1;
         text-align: center;
     }
+
+    .ocean-floor {
+        height: 100px;
+    }
+
+    .seaweed {
+        width: 40px;
+        height: 80px;
+    }
 }
 
+/* iPhone 11, Android Phones */
 @media (max-width: 480px) {
+    .navbar {
+        padding: 1rem 1rem;
+    }
+
+    .logo-img {
+        height: 40px;
+    }
+
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
     .hero-title {
         font-size: 1rem;
         white-space: nowrap;
@@ -494,11 +561,8 @@ body {
         width: 400px;
         height: auto;
         margin-left: -300px;
+        margin-top: -70px;
         transform: rotate(0deg);
-    }
-
-    .logo-text {
-        font-size: 1.2rem;
     }
 
     .ray-image {
@@ -515,5 +579,233 @@ body {
 
     .hero-layout {
         align-items: center;
+        padding: 1rem;
+    }
+
+    .ocean-floor {
+        height: 80px;
+    }
+
+    .seaweed {
+        width: 30px;
+        height: 60px;
+    }
+
+    .mobile-menu {
+        width: 220px;
+        padding: 1.5rem 1rem;
+    }
+}
+
+/* Small Android Phones */
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 0.9rem;
+    }
+
+    .hero-subtitle {
+        font-size: 3rem;
+        max-width: 220px;
+    }
+
+    .krabby-patty {
+        width: 350px;
+        margin-left: -280px;
+        margin-top: -60px;
+    }
+
+    .ray-image {
+        width: 300px;
+    }
+
+    .sea-star {
+        width: 40px;
+    }
+
+    .logo-text {
+        font-size: 1rem;
+    }
+
+    .logo-img {
+        height: 35px;
+    }
+
+    .ocean-floor {
+        height: 70px;
+    }
+}
+
+/* iPad Landscape */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .ocean-hero {
+        min-height: 100vh;
+        padding-top: 60px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        margin-top: -60px;
+    }
+
+    .hero-subtitle {
+        font-size: 7rem;
+    }
+
+    .krabby-patty {
+        width: 700px;
+        height: 600px;
+        margin-top: -40px;
+        margin-left: -280px;
+    }
+
+    .ray-image {
+        width: 800px;
+    }
+
+    .sea-star {
+        width: 70px;
+    }
+
+    .hero-layout {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .hero-patty {
+        order: 1;
+    }
+
+    .hero-text {
+        order: 2;
+        text-align: left;
+    }
+}
+
+/* iPad Portrait */
+@media (min-width: 768px) and (max-width: 834px) and (orientation: portrait) {
+    .ocean-hero {
+        min-height: 100vh;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        margin-top: -50px;
+    }
+
+    .hero-subtitle {
+        font-size: 5.5rem;
+    }
+
+    .krabby-patty {
+        width: 600px;
+        height: auto;
+        margin-top: -70px;
+        margin-left: -320px;
+    }
+
+    .ray-image {
+        width: 700px;
+    }
+
+    .sea-star {
+        width: 70px;
+    }
+
+    .hero-layout {
+        flex-direction: column;
+    }
+
+    .ocean-floor {
+        height: 120px;
+    }
+
+    .seaweed {
+        width: 50px;
+        height: 100px;
+    }
+}
+
+/* iPhone 11 Pro Max Landscape */
+@media (max-width: 896px) and (orientation: landscape) {
+    .ocean-hero {
+        min-height: 100vh;
+        padding-top: 80px;
+    }
+
+    .hero-title {
+        font-size: 1.3rem;
+        margin-top: -30px;
+    }
+
+    .hero-subtitle {
+        font-size: 4rem;
+    }
+
+    .krabby-patty {
+        width: 450px;
+        height: auto;
+        margin-top: -50px;
+        margin-left: -250px;
+    }
+
+    .ray-image {
+        width: 600px;
+    }
+
+    .sea-star {
+        width: 50px;
+    }
+
+    .hero-layout {
+        flex-direction: row;
+        gap: 1.5rem;
+        padding: 0 2rem;
+    }
+
+    .hero-patty {
+        order: 1;
+    }
+
+    .hero-text {
+        order: 2;
+        text-align: left;
+    }
+
+    .ocean-floor {
+        height: 80px;
+    }
+
+    .seaweed {
+        width: 35px;
+        height: 70px;
+    }
+
+    .navbar {
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* iPhone SE Landscape */
+@media (max-width: 667px) and (max-height: 375px) and (orientation: landscape) {
+    .ocean-hero {
+        padding-top: 70px;
+    }
+
+    .hero-title {
+        font-size: 1.1rem;
+    }
+
+    .hero-subtitle {
+        font-size: 3.5rem;
+    }
+
+    .krabby-patty {
+        width: 380px;
+        margin-top: -40px;
+        margin-left: -220px;
+    }
+
+    .ray-image {
+        width: 500px;
     }
 }
