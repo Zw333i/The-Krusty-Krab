@@ -911,11 +911,48 @@ html, body {
     font-size: 1.5rem;
     margin-bottom: 15px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: white;
 }
 
 .contact-info-card p {
     font-size: 1.05rem;
     line-height: 1.8;
+    color: white;
+}
+
+/* Mobile centering for contact cards */
+@media (max-width: 768px) {
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+        gap: 30px;
+        justify-items: center;
+    }
+    
+    .contact-info-card {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info-grid {
+        padding: 20px 15px;
+        gap: 25px;
+    }
+    
+    .contact-info-card {
+        max-width: 100%;
+        padding: 25px 20px;
+    }
+    
+    .contact-info-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .contact-info-card p {
+        font-size: 1rem;
+    }
 }
 
 /* Large Desktop/Monitor Optimization (1920px and above) */
