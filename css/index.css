@@ -255,8 +255,13 @@ body {
 .hero-subtitle {
     font-size: 6.5rem;
     font-family: 'KrabbyPatty', cursive;
-    color: #af0011;
-    text-shadow: -4px -4px 0 var(--white), 4px -4px 0 var(--white), -4px 4px 0 var(--white), 4px 4px 0 var(--white), -4px 0 0 var(--white), 4px 0 0 var(--white), 0 -4px 0 var(--white), 0 4px 0 var(--white);
+    color: #FF3333;
+        text-shadow: 
+        -1px -1px 0 #ffffff,
+        0px -1px 0 #FFF,
+        3px 4px 0 #FFF,
+        4px 4px 0 #FFF,
+        0 6px 10px rgba(0, 0, 0, 0.5);
     margin-bottom: 2rem;
     animation: fadeInUp 1s ease;
     line-height: 1.1;
@@ -501,7 +506,7 @@ body {
         width: 500px;
         height: auto;
         margin-top: -90px;
-        margin-left: -300px;
+        margin-left: -250px;
         transform: rotate(0deg);
     }
 
@@ -560,7 +565,7 @@ body {
     .krabby-patty {
         width: 400px;
         height: auto;
-        margin-left: -300px;
+        margin-left: -250px;
         margin-top: -70px;
         transform: rotate(0deg);
     }
@@ -610,7 +615,7 @@ body {
 
     .krabby-patty {
         width: 350px;
-        margin-left: -280px;
+        margin-left: -250px;
         margin-top: -60px;
     }
 
@@ -655,7 +660,7 @@ body {
         width: 700px;
         height: 600px;
         margin-top: -40px;
-        margin-left: -280px;
+        margin-left: -250px;
     }
 
     .ray-image {
@@ -802,7 +807,7 @@ body {
     .krabby-patty {
         width: 380px;
         margin-top: -40px;
-        margin-left: -220px;
+        margin-left: -300px;
     }
 
     .ray-image {

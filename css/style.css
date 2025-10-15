@@ -1094,6 +1094,18 @@ html, body {
     .menu-item-price {
         font-size: 1.1rem;
     }
+
+    .contact-info-grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .contact-info-card {
+        width: 100%;
+        max-width: 350px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1118,9 +1130,9 @@ html, body {
     font-size: 5rem;
     color: #FF3333;
     text-shadow: 
-        -3px -4px 0 #FF3333,
-        4px -4px 0 #FFF,
-        -4px 4px 0 #FFF,
+        -1px -1px 0 #ffffff,
+        0px -1px 0 #FFF,
+        3px 4px 0 #FFF,
         4px 4px 0 #FFF,
         0 6px 10px rgba(0, 0, 0, 0.5);
     letter-spacing: 9px;
