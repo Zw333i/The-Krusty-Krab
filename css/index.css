@@ -175,7 +175,7 @@ body {
     top: 80px;
     right: -100%;
     width: 250px;
-    background: rgba(0, 119, 182, 0.98);
+    background: #00c0fa;
     backdrop-filter: blur(10px);
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
     padding: 2rem 1rem;
@@ -564,7 +564,7 @@ body {
     .krabby-patty {
         width: 400px;
         height: auto;
-        margin-left: -250px;
+        margin-left: -300px;
         margin-top: -70px;
         transform: rotate(0deg);
     }
