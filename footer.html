@@ -181,6 +181,32 @@
             border-radius: 50% 50% 0 0;
         }
 
+        .house {
+            position: absolute;
+            opacity: 0.9;
+            bottom: -40px;
+            transition: transform 0.3s ease;
+            z-index: 2;
+        }
+
+        .house:hover {
+            transform: scale(1.05);
+        }
+
+        .house img {
+            height: 250px;
+            width: auto;
+            display: block;
+        }
+
+        .spongebob-house {
+            left: 17%;
+        }
+
+        .squidward-house {
+            right: 14%;
+        }
+
         .footer-bubble {
             position: fixed;
             bottom: 0;
@@ -249,6 +275,12 @@
             <div class="coral"></div>
             <div class="coral"></div>
             <div class="coral"></div>
+            <div class="house spongebob-house">
+                <img src="images/spongebob_house.png" alt="SpongeBob's Pineapple House">
+            </div>
+            <div class="house squidward-house">
+                <img src="images/squidward_house.png" alt="Squidward's House">
+            </div>
         </div>
         
         <div class="footer-content">

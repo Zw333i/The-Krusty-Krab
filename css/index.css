@@ -291,7 +291,7 @@ body {
 
 .sea-star {
     position: absolute;
-    width: 80px;
+    width: 140px;
     height: auto;
     left: var(--random-left);
     top: var(--random-top);
@@ -388,31 +388,6 @@ body {
     }
 }
 
-/* Ocean Floor */
-.ocean-floor {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 150px;
-    background: linear-gradient(to top, #618395 0%, transparent 100%);
-    z-index: 1;
-}
-
-/* Seaweed and coral decorations */
-.decoration {
-    position: absolute;
-    bottom: 0;
-    opacity: 0.5;
-}
-
-.seaweed {
-    width: 60px;
-    height: 120px;
-    background: linear-gradient(to top, #1a5c1a, #2d8b2d);
-    border-radius: 30px 30px 0 0;
-    animation: sway 3s ease-in-out infinite;
-}
 
 @keyframes sway {
     0%, 100% {
@@ -813,4 +788,14 @@ body {
     .ray-image {
         width: 500px;
     }
+}
+
+@media (min-width: 1920px){
+
+    .krabby-patty {
+        width: 380px;
+        margin-top: -40px;
+        margin-left: -300px;
+    }
+    
 }

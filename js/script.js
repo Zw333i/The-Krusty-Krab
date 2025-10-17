@@ -25,26 +25,30 @@ $(document).ready(function() {
                 nav: true,
                 dots: true,
                 navText: ['‹', '›'],
+                freeDrag: true,  
                 responsive: {
                     0: {
-                        items: 1
+                        items: 1,
+                        freeDrag: true  
                     },
                     600: {
-                        items: 2
+                        items: 2,
+                        freeDrag: true  
                     },
                     1000: {
-                        items: 3
+                        items: 3,
+                        freeDrag: false  
                     }
                 }
             });
         });
 
-        // Handle click on carousel items
         $(document).on('click', '.custom-carousel .item', function() {
-            const carousel = $(this).closest('.custom-carousel');
-            carousel.find('.item').not($(this)).removeClass('active');
-            $(this).toggleClass('active');
-        });
+        const carousel = $(this).closest('.custom-carousel');
+        carousel.find('.item').removeClass('active');
+        $(this).addClass('active');
+});
+
     }
 
     // Gallery Carousel Functionality
@@ -163,8 +167,7 @@ $(document).ready(function() {
 
         console.log('Form submitted:', formData);
     });
-
-    // Smooth Scrolling for anchor links
+    
     $('a[href^="#"]').on('click', function(e) {
         const target = $(this.getAttribute('href'));
         if (target.length) {
@@ -175,7 +178,78 @@ $(document).ready(function() {
         }
     });
 
-    // Add animation on scroll
+    $(document).on('click', '.menu-list-link', function(e) {
+        e.preventDefault();
+        
+        const target = $(this).data('target');
+        const element = $('#' + target);
+        
+        console.log('Menu item clicked:', target);
+        
+        if (element.length) {
+            console.log('Found element:', element);
+            
+            const carousel = element.closest('.custom-carousel');
+            const owlCarousel = carousel.data('owl.carousel');
+            
+            if (!owlCarousel) {
+                console.log('Owl Carousel not initialized');
+                return;
+            }
+            
+            const allItems = carousel.find('.owl-item:not(.cloned) .item');
+            let targetIndex = -1;
+            
+            allItems.each(function(index) {
+                if ($(this).attr('id') === target) {
+                    targetIndex = index;
+                    return false; 
+                }
+            });
+            
+            console.log('Target index:', targetIndex);
+            
+            if (targetIndex !== -1) {
+                $('html, body').stop().animate({
+                    scrollTop: element.closest('.menu-category').offset().top - 100
+                }, 800, function() {
+                    console.log('Scroll complete');
+                    
+                    setTimeout(function() {
+                        carousel.find('.item').removeClass('active');
+                        
+                        const screenWidth = $(window).width();
+                        
+                        if (screenWidth >= 1000) {
+                            const desktopIndex = targetIndex > 0 ? targetIndex - 1 : 0;
+                            owlCarousel.to(desktopIndex, 400, true);
+                        } else {
+                            owlCarousel.to(targetIndex, 400, true);
+                        }
+                        
+                        console.log('Navigated to index:', targetIndex);
+                        
+                        setTimeout(function() {
+                            carousel.find('.item').removeClass('active');
+                            
+                            element.addClass('active');
+                            
+                            console.log('Card expanded with active class');
+                            
+                            setTimeout(function() {
+                                owlCarousel.trigger('refresh.owl.carousel');
+                            }, 50);
+                        }, 450);
+                    }, 100);
+                });
+            } else {
+                console.log('Target index not found');
+            }
+        } else {
+            console.log('Element not found for target:', target);
+        }
+    });
+
     function isElementInViewport(el) {
         const rect = el.getBoundingClientRect();
         return (
