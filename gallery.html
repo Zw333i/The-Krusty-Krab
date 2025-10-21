@@ -44,7 +44,7 @@
         .video-caption p {
             font-size: 1.1rem;
             opacity: 0.9;
-            font-style: italic;
+            font-style: bold;
         }
     </style>
 </head>
@@ -58,26 +58,23 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <!-- Left Nav Links -->
             <ul class="nav-left">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="gallery.html" class="active">Gallery</a></li>
             </ul>
 
-            <!-- Center Logo -->
             <div class="logo-center">
                 <img src="https://static.wikia.nocookie.net/logopedia/images/8/8a/KK_main_logo.png" alt="Krusty Krab Logo" class="logo-img">
                 <span class="logo-text">Krusty Krab</span>
             </div>
 
-            <!-- Right Nav Links -->
             <ul class="nav-right">
+                <li><a href="promotions.html">Promotions</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
 
-            <!-- Hamburger Menu for Mobile -->
             <div class="hamburger-menu">
                 <button class="hamburger-toggle" aria-label="Toggle menu">
                     <span></span>
@@ -87,7 +84,6 @@
             </div>
         </div>
 
-        <!-- Mobile Menu -->
         <div class="mobile-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -109,21 +105,21 @@
                     <div class="owl-carousel custom-carousel owl-theme">
                         <div class="item active" data-link="restaurant" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEM-vsJGYRxX0_EI2S6KDFKSuryQirn0LDcQ&s);">
                             <div class="item-desc">
-                                <h3>The Krusty Krab Restaurant</h3>
+                                <h3>The Krusty Krab</h3>
                                 <p>Our iconic restaurant shaped like a lobster trap!</p>
                             </div>
                         </div>
                         
                         <div class="item" style="background-image: url(https://images.nintendolife.com/bc73d5513d4c3/1280x720.jpg);">
                             <div class="item-desc">
-                                <h3>SpongeBob Cooking</h3>
+                                <h3>Our Cook!</h3>
                                 <p>Watch our master fry cook SpongeBob in action! With years of experience and boundless enthusiasm, he crafts every Krabby Patty with love.</p>
                             </div>
                         </div>
                         
                         <div class="item" style="background-image: url(https://i.pinimg.com/736x/33/e9/31/33e9318abad9a87418c3eace3effae30.jpg);">
                             <div class="item-desc">
-                                <h3>Inside Dining Area</h3>
+                                <h3>Dining Area</h3>
                                 <p>Enjoy your meal in our warm, nautical-themed dining area. With comfortable seating and ocean views, it's perfect for families.</p>
                             </div>
                         </div>
@@ -183,25 +179,11 @@
             <img src="images/orange.png" alt="Orange Star" class="sea-star" style="--random-left: 70%; --random-top: 70%; --random-delay: 1.5s;">
     </div>
 
+    <!-- Footer -->
     <div id="footer-placeholder"></div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="js/footer-loader.js"></script>
+    
     <script>
-            fetch('footer.html')
-            .then(response => response.text())  
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-                
-                setTimeout(() => {
-                    const scripts = document.getElementById('footer-placeholder').getElementsByTagName('script');
-                    for (let script of scripts) {
-                        eval(script.innerHTML);
-                    }
-                }, 100);
-            })
-
-        // Hamburger Menu
         const hamburgerToggle = document.querySelector('.hamburger-toggle');
         const mobileMenu = document.querySelector('.mobile-menu');
 

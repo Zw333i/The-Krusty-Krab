@@ -1,14 +1,20 @@
 // script.js
 
 $(document).ready(function() {
-    
-    // Mobile Navigation Toggle
+    if ($('#contactForm').length > 0) {
+        if (typeof emailjs !== 'undefined') {
+            emailjs.init('qNGsQsBpghU7kLut7');
+            console.log('✓ EmailJS initialized successfully');
+        } else {
+            console.error('✗ EmailJS library not loaded');
+        }
+    }
+
     $('.mobile-toggle').click(function() {
         $('.nav-links').toggleClass('active');
         $(this).toggleClass('active');
     });
 
-    // Close mobile menu when clicking outside
     $(document).click(function(event) {
         if (!$(event.target).closest('.navbar').length) {
             $('.nav-links').removeClass('active');
@@ -51,13 +57,11 @@ $(document).ready(function() {
 
     }
 
-    // Gallery Carousel Functionality
     if ($('#carouselWrapper').length) {
         let currentIndex = 0;
         const items = $('.carousel-item');
         const totalItems = items.length;
         
-        // Click on carousel item
         $('.carousel-item').click(function() {
             const clickedIndex = $(this).data('index');
             if (clickedIndex !== currentIndex) {
@@ -65,13 +69,11 @@ $(document).ready(function() {
             }
         });
 
-        // Previous button
         $('#prevBtn').click(function() {
             currentIndex = (currentIndex - 1 + totalItems) % totalItems;
             setActiveItem(currentIndex);
         });
 
-        // Next button
         $('#nextBtn').click(function() {
             currentIndex = (currentIndex + 1) % totalItems;
             setActiveItem(currentIndex);
@@ -80,38 +82,34 @@ $(document).ready(function() {
         function setActiveItem(index) {
             currentIndex = index;
             
-            // Remove active class from all items
             items.removeClass('active');
             
-            // Add active class to clicked item
             items.eq(index).addClass('active');
             
-            // Calculate the position to center the active item
             const itemWidth = items.eq(index).hasClass('active') ? 500 : 320;
             const containerWidth = $('.carousel-container').width();
             const offset = (containerWidth / 2) - (itemWidth / 2);
             
-            // Calculate cumulative width before the active item
             let totalWidth = 0;
             items.each(function(i) {
                 if (i < index) {
                     const w = $(this).hasClass('active') ? 500 : 320;
-                    totalWidth += w + 30; // 30px for margins
+                    totalWidth += w + 30; 
                 }
             });
             
-            // Apply transform
+       
             const translateX = offset - totalWidth - 15;
             $('#carouselWrapper').css('transform', `translateX(${translateX}px)`);
         }
 
-        // Auto-play carousel (optional)
+       
         let autoplayInterval = setInterval(function() {
             currentIndex = (currentIndex + 1) % totalItems;
             setActiveItem(currentIndex);
         }, 5000);
 
-        // Stop autoplay on hover
+        
         $('.carousel-container').hover(
             function() {
                 clearInterval(autoplayInterval);
@@ -124,48 +122,76 @@ $(document).ready(function() {
             }
         );
 
-        // Handle window resize
         $(window).resize(function() {
             setActiveItem(currentIndex);
         });
     }
 
-    // Contact Form Submission
     $('#contactForm').submit(function(e) {
         e.preventDefault();
         
         const formData = {
-            name: $('#name').val(),
-            email: $('#email').val(),
-            phone: $('#phone').val(),
-            subject: $('#subject').val(),
-            message: $('#message').val()
+            user_name: $('#name').val(),
+            user_email: $('#email').val(),
+            user_phone: $('#phone').val(),
+            user_subject: $('#subject').val(),
+            user_message: $('#message').val()
         };
 
-        // Show success message (in a real application, you would send this to a server)
         $('#formResponse')
-            .removeClass('error-message')
-            .addClass('success-message')
+            .removeClass('error-message success-message')
+            .addClass('loading-message')
             .css({
                 'display': 'block',
-                'background-color': '#90EE90',
-                'color': '#006400',
-                'border': '2px solid #006400'
+                'background-color': '#ADD8E6',
+                'color': '#00008B',
+                'border': '2px solid #00008B'
             })
-            .html(`
-                <strong>✓ Message Sent Successfully!</strong><br>
-                Thank you, ${formData.name}! We've received your message and will get back to you soon at ${formData.email}.
-            `);
+            .html(`<strong>⏳ Sending your message...</strong>`);
 
-        // Reset form
-        this.reset();
+        emailjs.send(
+            'the_krusty_krab',    
+            'krusty_krab',        
+            formData              
+        ).then(function(response) {
+            $('#formResponse')
+                .removeClass('loading-message')
+                .addClass('success-message')
+                .css({
+                    'display': 'block',
+                    'background-color': '#90EE90',
+                    'color': '#006400',
+                    'border': '2px solid #006400'
+                })
+                .html(`
+                    <strong>✓ Message Sent Successfully!</strong><br>
+                    Thank you, ${formData.user_name}! A copy of your message has been sent to ${formData.user_email}.
+                `);
 
-        // Hide success message after 5 seconds
-        setTimeout(function() {
-            $('#formResponse').fadeOut();
-        }, 5000);
+            $('#contactForm')[0].reset();
 
-        console.log('Form submitted:', formData);
+            setTimeout(function() {
+                $('#formResponse').fadeOut();
+            }, 5000);
+
+            console.log('Email sent successfully:', response);
+        }, function(error) {
+            $('#formResponse')
+                .removeClass('loading-message')
+                .addClass('error-message')
+                .css({
+                    'display': 'block',
+                    'background-color': '#FFB6C6',
+                    'color': '#8B0000',
+                    'border': '2px solid #8B0000'
+                })
+                .html(`
+                    <strong>✗ Error Sending Message</strong><br>
+                    There was a problem sending your message. Please try again or contact us directly.
+                `);
+
+            console.error('EmailJS error:', error);
+        });
     });
     
     $('a[href^="#"]').on('click', function(e) {
@@ -268,7 +294,6 @@ $(document).ready(function() {
         });
     }
 
-    // Add CSS for scroll animations
     $('<style>')
         .prop('type', 'text/css')
         .html(`
@@ -288,11 +313,9 @@ $(document).ready(function() {
         `)
         .appendTo('head');
 
-    // Trigger on scroll
     $(window).on('scroll', handleScrollAnimations);
-    handleScrollAnimations(); // Initial check
+    handleScrollAnimations(); 
 
-    // Add hover effect to buttons
     $('.btn, .submit-btn, .carousel-btn').hover(
         function() {
             $(this).css('transform', 'translateY(-3px) scale(1.05)');
@@ -302,102 +325,94 @@ $(document).ready(function() {
         }
     );
 
-    // Prevent form submission animation conflict
     $('.carousel-btn').click(function(e) {
         e.stopPropagation();
     });
 
-    // Add loading state to navigation
-    $('.nav-links a').click(function() {
-        if ($(this).attr('href').indexOf('#') === -1) {
-            $(this).append(' <span style="font-size: 0.8em;">⟳</span>');
-        }
+        $('.nav-links a').click(function() {
+            if ($(this).attr('href').indexOf('#') === -1) {
+                $(this).append(' <span style="font-size: 0.8em;">⟳</span>');
+            }
+        });
+
+        console.log('🦀 The Krusty Krab website loaded successfully!');
+        console.log('📍 Total menu items:', $('.menu-item').length);
+        console.log('🎨 Gallery items:', $('.carousel-item').length);
     });
 
-    // Console log for debugging
-    console.log('🦀 The Krusty Krab website loaded successfully!');
-    console.log('📍 Total menu items:', $('.menu-item').length);
-    console.log('🎨 Gallery items:', $('.carousel-item').length);
-});
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        const buttons = document.querySelectorAll('.btn, .submit-btn');
+        
+        buttons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.classList.add('ripple');
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
 
-// Additional functionality for interactive elements
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Add ripple effect to buttons
-    const buttons = document.querySelectorAll('.btn, .submit-btn');
-    
-    buttons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            const ripple = document.createElement('span');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            ripple.classList.add('ripple');
-            
-            this.appendChild(ripple);
-            
-            setTimeout(() => ripple.remove(), 600);
+        const style = document.createElement('style');
+        style.textContent = `
+            .btn, .submit-btn {
+                position: relative;
+                overflow: hidden;
+            }
+            .ripple {
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.6);
+                transform: scale(0);
+                animation: ripple-animation 0.6s ease-out;
+                pointer-events: none;
+            }
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    });
+
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+
+    function validatePhone(phone) {
+        const re = /^[\d\s\-\(\)]+$/;
+        return re.test(phone) || phone === '';
+    }
+
+    $(document).ready(function() {
+        $('#email').on('blur', function() {
+            const email = $(this).val();
+            if (email && !validateEmail(email)) {
+                $(this).css('border-color', '#FF6F61');
+            } else {
+                $(this).css('border-color', '#f2f2f2');
+            }
+        });
+
+        $('#phone').on('blur', function() {
+            const phone = $(this).val();
+            if (phone && !validatePhone(phone)) {
+                $(this).css('border-color', '#FF6F61');
+            } else {
+                $(this).css('border-color', '#f2f2f2');
+            }
         });
     });
-
-    // Add ripple effect styles
-    const style = document.createElement('style');
-    style.textContent = `
-        .btn, .submit-btn {
-            position: relative;
-            overflow: hidden;
-        }
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.6);
-            transform: scale(0);
-            animation: ripple-animation 0.6s ease-out;
-            pointer-events: none;
-        }
-        @keyframes ripple-animation {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-});
-
-// Form validation helper
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-function validatePhone(phone) {
-    const re = /^[\d\s\-\(\)]+$/;
-    return re.test(phone) || phone === '';
-}
-
-// Add real-time validation to contact form
-$(document).ready(function() {
-    $('#email').on('blur', function() {
-        const email = $(this).val();
-        if (email && !validateEmail(email)) {
-            $(this).css('border-color', '#FF6F61');
-        } else {
-            $(this).css('border-color', '#f2f2f2');
-        }
-    });
-
-    $('#phone').on('blur', function() {
-        const phone = $(this).val();
-        if (phone && !validatePhone(phone)) {
-            $(this).css('border-color', '#FF6F61');
-        } else {
-            $(this).css('border-color', '#f2f2f2');
-        }
-    });
-});

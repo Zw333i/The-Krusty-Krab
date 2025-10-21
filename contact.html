@@ -32,7 +32,23 @@
                 height: 400px;
             }
         }
+
+            .video-caption {
+            margin-top: 20px;
+            color: white;
+        }
+        .video-caption h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .video-caption p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-style: bold;
+        }
     </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="ocean-background">
@@ -54,6 +70,7 @@
             </div>
 
             <ul class="nav-right">
+                <li><a href="promotions.html">Promotions</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
@@ -72,6 +89,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="promotions.html">Promotions</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -166,7 +184,7 @@
             </div>
 
             <div class="menu-category">
-                <h2 class="line-title">🦀 Step Into Our World!</h2>
+                <h2 class="line-title">🦀 Location</h2>
                 <div class="sketchfab-container">
                     <div class="sketchfab-embed-wrapper"> 
                         <iframe title="The Krusty Krab" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/e109df8b1cb1487dbf2553e5e2d7eff1/embed?autostart=1&preload=1&transparent=1"> </iframe> 
@@ -175,6 +193,11 @@
                         </p>
                     </div>
                 </div>
+                    <div class="video-caption">
+                        <center>
+                        <p>3D Look at the Krusty Krab's Main Branch Located at the Bikini Bottom</p>
+                        </center>
+                    </div>
             </div>
         </div>
     </section>
@@ -188,21 +211,11 @@
             <img src="images/orange.png" alt="Orange Star" class="sea-star" style="--random-left: 70%; --random-top: 70%; --random-delay: 1.5s;">
     </div>
 
+    <!-- Footer -->
     <div id="footer-placeholder"></div>
+    <script src="js/footer-loader.js"></script>
+    
     <script>
-        fetch('footer.html')
-            .then(response => response.text())  
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-                
-                setTimeout(() => {
-                    const scripts = document.getElementById('footer-placeholder').getElementsByTagName('script');
-                    for (let script of scripts) {
-                        eval(script.innerHTML);
-                    }
-                }, 100);
-            })
-            .catch(error => console.error('Error loading footer:', error));
 
         const hamburgerToggle = document.querySelector('.hamburger-toggle');
         const mobileMenu = document.querySelector('.mobile-menu');
@@ -222,5 +235,8 @@
         });
 
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

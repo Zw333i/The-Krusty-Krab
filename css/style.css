@@ -1475,6 +1475,63 @@ height: 400px;
     animation: titleBounce 2s ease-in-out infinite;
 }
 
+/* Burger Builder Section */
+.burger-builder-section {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 40px;
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0 8px 32px rgba(253, 253, 253, 0.1);
+    margin-bottom: 80px;
+    overflow: hidden;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;
+}
+
+.burgerSVG {
+    width: 100%;
+    height: 450px;
+    visibility: visible;
+    overflow: visible;
+}
+
+.choose, .choose2 {
+    font-family: 'KrabbyPatty', cursive;
+    text-anchor: middle;
+    font-size: 3em;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 6;
+    letter-spacing: 0.1em;
+}
+
+.choose2 {
+    fill: #de1111;
+    stroke: none;
+    stroke-width: 2;
+}
+
+.filling {
+    font-family: 'KrabbyPatty', cursive;
+    fill: #EF3E36;
+    stroke: #EF3E36;
+    text-anchor: middle;
+    font-size: 2.3em;
+    letter-spacing: -1px;
+}
+
+.burgerSVG text {
+    user-select: none;
+}
+
+.dragHit {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+}
+
 
 @keyframes bobbing {
     0%, 100% {
@@ -1582,6 +1639,28 @@ height: 400px;
         font-size: 2rem;
     }
 
+    .line-title, .section-title {
+        font-size: 2rem;
+    }
+
+    .burger-builder-section {
+        padding: 20px;
+        max-width: 100%;
+        height: 280px;
+    }
+
+    .burgerSVG {
+        height: 350px;
+    }
+
+    .choose, .choose2 {
+        font-size: 2.9em;
+    }
+
+    .filling {
+        font-size: 1.8em;
+    }
+
     .carousel-container {
         overflow: hidden;
         padding: 0 10px;
@@ -1664,6 +1743,28 @@ height: 400px;
 
     .line-title, .section-title {
         font-size: 1.5rem;
+    }
+
+    .line-title, .section-title {
+        font-size: 1.5rem;
+    }
+
+    .burger-builder-section {
+        padding: 15px;
+        max-width: 100%;
+        height: 250px;
+    }
+
+    .burgerSVG {
+        height: 300px;
+    }
+
+    .choose, .choose2 {
+        font-size: 2em;
+    }
+
+    .filling {
+        font-size: 1.5em;
     }
 
     .carousel-container {

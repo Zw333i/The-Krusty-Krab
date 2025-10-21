@@ -55,6 +55,7 @@
             </div>
 
             <ul class="nav-right">
+                <li><a href="promotions.html">Promotions</a></li>
                 <li><a href="about.html" class="active">About Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -73,6 +74,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="promotions.html">Promotions</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -217,9 +219,6 @@
             <div class="video-section">
                 <div class="story-section">
                     <h2 class="section-title">🎬 Employee Training Video</h2>
-                </div>
-                <div class="story-section">
-                    <div class="video-container">
                         <div class="video-wrapper">
                             <iframe 
                                 src="https://www.youtube.com/embed/Pblb2_mTfvI" 
@@ -229,8 +228,6 @@
                                 allowfullscreen>
                             </iframe>
                         </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -247,22 +244,9 @@
 
     <!-- Footer -->
     <div id="footer-placeholder"></div>
+    <script src="js/footer-loader.js"></script>
+    
     <script>
-        fetch('footer.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('footer-placeholder').innerHTML = data;
-                
-                setTimeout(() => {
-                    const scripts = document.getElementById('footer-placeholder').getElementsByTagName('script');
-                    for (let script of scripts) {
-                        eval(script.innerHTML);
-                    }
-                }, 100);
-            })
-            .catch(error => console.error('Error loading footer:', error));
-
-        // Hamburger Menu Toggle
         const hamburgerToggle = document.querySelector('.hamburger-toggle');
         const mobileMenu = document.querySelector('.mobile-menu');
 
