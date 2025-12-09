@@ -130,6 +130,7 @@ $(document).ready(function() {
     $('#contactForm').submit(function(e) {
         e.preventDefault();
         
+        const form = this;
         const formData = {
             user_name: $('#name').val(),
             user_email: $('#email').val(),
@@ -154,6 +155,10 @@ $(document).ready(function() {
             'krusty_krab',        
             formData              
         ).then(function(response) {
+            console.log('Email sent successfully:', response);
+            
+            // After EmailJS succeeds, submit the form to PHP for database storage
+            // Create a hidden form to submit without triggering the same handler
             $('#formResponse')
                 .removeClass('loading-message')
                 .addClass('success-message')
@@ -164,17 +169,16 @@ $(document).ready(function() {
                     'border': '2px solid #006400'
                 })
                 .html(`
-                    <strong>✓ Message Sent Successfully!</strong><br>
-                    Thank you, ${formData.user_name}! A copy of your message has been sent to ${formData.user_email}.
+                    <strong>✓ Email Sent! Saving to database...</strong><br>
+                    Thank you, ${formData.user_name}!
                 `);
-
-            $('#contactForm')[0].reset();
-
+            
+            // Submit the form to PHP after a short delay
             setTimeout(function() {
-                $('#formResponse').fadeOut();
-            }, 5000);
+                // Remove the submit handler temporarily to allow natural form submission
+                form.submit();
+            }, 1000);
 
-            console.log('Email sent successfully:', response);
         }, function(error) {
             $('#formResponse')
                 .removeClass('loading-message')
@@ -186,7 +190,7 @@ $(document).ready(function() {
                     'border': '2px solid #8B0000'
                 })
                 .html(`
-                    <strong>✗ Error Sending Message</strong><br>
+                    <strong>✗ Error Sending Email</strong><br>
                     There was a problem sending your message. Please try again or contact us directly.
                 `);
 

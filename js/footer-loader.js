@@ -2,13 +2,36 @@
 
 const FooterLoader = {
     /**
+     * Determines the correct path to footer.html based on current page location
+     * @returns {string} The path to footer.html
+     */
+    getFooterPath() {
+        const path = window.location.pathname;
+        // If we're in the root directory (index.html or /)
+        if (path.endsWith('/') || path.endsWith('/index.html') || path.match(/\/krusty%20krab\/?$/i) || path.match(/\/krusty krab\/?$/i)) {
+            return 'pages/footer.html';
+        }
+        // If we're in the pages folder
+        if (path.includes('/pages/')) {
+            return 'footer.html';
+        }
+        // If we're in the php folder
+        if (path.includes('/php/')) {
+            return '../pages/footer.html';
+        }
+        // Default fallback - try relative to root
+        return 'pages/footer.html';
+    },
+
+    /**
      * Loads and initializes the footer component
      * @param {string} containerId 
      * @returns {Promise<boolean>} 
      */
     async load(containerId = 'footer-placeholder') {
         try {
-            const response = await fetch('footer.html');
+            const footerPath = this.getFooterPath();
+            const response = await fetch(footerPath);
             
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);

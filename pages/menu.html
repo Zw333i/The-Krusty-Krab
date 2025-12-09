@@ -8,31 +8,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <div class="ocean-background">
-        <img src="images/ray.png" alt="Ray" class="ray-image">
+        <img src="../images/ray.png" alt="Ray" class="ray-image">
         <div class="bubbles-container"></div>
     </div>
 
     <nav class="navbar">
         <div class="nav-container">
             <ul class="nav-left">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="menu.html" class="active">Menu</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
             </ul>
 
             <div class="logo-center">
-                <img src="https://static.wikia.nocookie.net/logopedia/images/8/8a/KK_main_logo.png" alt="Krusty Krab Logo" class="logo-img">
+                <a href="../php/login.php" title="Admin Login">
+                    <img src="https://static.wikia.nocookie.net/logopedia/images/8/8a/KK_main_logo.png" alt="Krusty Krab Logo" class="logo-img">
+                </a>
                 <span class="logo-text">Krusty Krab</span>
             </div>
 
             <ul class="nav-right">
                 <li><a href="promotions.html">Promotions</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="../php/contact.php">Contact</a></li>
             </ul>
 
             <div class="hamburger-menu">
@@ -46,12 +48,12 @@
 
         <div class="mobile-menu">
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="promotions.html">Promotions</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="../php/contact.php">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -381,24 +383,24 @@
 
     <!-- Sea Stars -->
     <div class="sea-stars">
-        <img src="images/yellow.png" alt="Yellow Star" class="sea-star" style="--random-left: 8%; --random-top: 15%; --random-delay: 0s;">
-        <img src="images/violet.png" alt="Violet Star" class="sea-star" style="--random-left: 75%; --random-top: 25%; --random-delay: 0.3s;">
-        <img src="images/orange.png" alt="Orange Star" class="sea-star" style="--random-left: 12%; --random-top: 65%; --random-delay: 0.6s;">
-        <img src="images/yellow.png" alt="Yellow Star" class="sea-star" style="--random-left: 85%; --random-top: 55%; --random-delay: 0.9s;">
-        <img src="images/violet.png" alt="Violet Star" class="sea-star" style="--random-left: 25%; --random-top: 40%; --random-delay: 1.2s;">
-        <img src="images/orange.png" alt="Orange Star" class="sea-star" style="--random-left: 70%; --random-top: 70%; --random-delay: 1.5s;">
+        <img src="../images/yellow.png" alt="Yellow Star" class="sea-star" style="--random-left: 8%; --random-top: 15%; --random-delay: 0s;">
+        <img src="../images/violet.png" alt="Violet Star" class="sea-star" style="--random-left: 75%; --random-top: 25%; --random-delay: 0.3s;">
+        <img src="../images/orange.png" alt="Orange Star" class="sea-star" style="--random-left: 12%; --random-top: 65%; --random-delay: 0.6s;">
+        <img src="../images/yellow.png" alt="Yellow Star" class="sea-star" style="--random-left: 85%; --random-top: 55%; --random-delay: 0.9s;">
+        <img src="../images/violet.png" alt="Violet Star" class="sea-star" style="--random-left: 25%; --random-top: 40%; --random-delay: 1.2s;">
+        <img src="../images/orange.png" alt="Orange Star" class="sea-star" style="--random-left: 70%; --random-top: 70%; --random-delay: 1.5s;">
     </div>
 
     <!-- Footer -->
     <div id="footer-placeholder"></div>
-    <script src="js/footer-loader.js"></script>
+    <script src="../js/footer-loader.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/DrawSVGPlugin.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="../js/script.js"></script>
     
     <script>
         const hamburgerToggle = document.querySelector('.hamburger-toggle');

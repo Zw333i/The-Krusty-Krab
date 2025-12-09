@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <style>
         .sketchfab-container {
             padding: 0;
@@ -47,32 +47,68 @@
             opacity: 0.9;
             font-style: bold;
         }
+        
+        /* Subject dropdown styling */
+        #subject {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #f2f2f2;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            background: white;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+        }
+        
+        #subject:focus {
+            outline: none;
+            border-color: #FF6F61;
+            box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.1);
+        }
+        
+        #subject:hover {
+            border-color: #FF6F61;
+        }
+        
+        #subject option {
+            padding: 10px;
+        }
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <div class="ocean-background">
-        <img src="images/ray.png" alt="Ray" class="ray-image">
+        <img src="../images/ray.png" alt="Ray" class="ray-image">
         <div class="bubbles-container"></div>
     </div>
 
     <nav class="navbar">
         <div class="nav-container">
             <ul class="nav-left">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/menu.html">Menu</a></li>
+                <li><a href="../pages/gallery.html">Gallery</a></li>
             </ul>
 
             <div class="logo-center">
-                <img src="https://static.wikia.nocookie.net/logopedia/images/8/8a/KK_main_logo.png" alt="Krusty Krab Logo" class="logo-img">
+                <a href="login.php" title="Admin Login">
+                    <img src="https://static.wikia.nocookie.net/logopedia/images/8/8a/KK_main_logo.png" alt="Krusty Krab Logo" class="logo-img">
+                </a>
                 <span class="logo-text">Krusty Krab</span>
             </div>
 
             <ul class="nav-right">
-                <li><a href="promotions.html">Promotions</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="../pages/promotions.html">Promotions</a></li>
+                <li><a href="../pages/about.html">About Us</a></li>
+                <li><a href="contact.php" class="active">Contact</a></li>
             </ul>
 
             <div class="hamburger-menu">
@@ -86,12 +122,12 @@
 
         <div class="mobile-menu">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="promotions.html">Promotions</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/menu.html">Menu</a></li>
+                <li><a href="../pages/gallery.html">Gallery</a></li>
+                <li><a href="../pages/promotions.html">Promotions</a></li>
+                <li><a href="../pages/about.html">About Us</a></li>
+                <li><a href="contact.php">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -101,7 +137,7 @@
             <div class="menu-category">
                 <h2 class="line-title">📧 Send Us A Message</h2>
                 <div class="contact-form-wrapper">
-                    <form id="contactForm" class="contact-form">
+                    <form id="contactForm" class="contact-form" action="process_contact.php" method="POST">
                         <div class="form-group">
                             <label for="name">Your Name *</label>
                             <input type="text" id="name" name="name" required placeholder="Enter your name">
@@ -116,7 +152,15 @@
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject *</label>
-                            <input type="text" id="subject" name="subject" required placeholder="What's this about?">
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected>Select a subject...</option>
+                                <option value="Reservations/Bookings">Reservations/Bookings</option>
+                                <option value="Food & Menu">Food & Menu</option>
+                                <option value="Feedback">Feedback</option>
+                                <option value="Services">Services</option>
+                                <option value="Franchise">Franchise</option>
+                                <option value="General">General</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="message">Message *</label>
@@ -203,17 +247,17 @@
     </section>
 
     <div class="sea-stars">
-            <img src="images/yellow.png" alt="Yellow Star" class="sea-star" style="--random-left: 8%; --random-top: 15%; --random-delay: 0s;">
-            <img src="images/violet.png" alt="Violet Star" class="sea-star" style="--random-left: 75%; --random-top: 25%; --random-delay: 0.3s;">
-            <img src="images/orange.png" alt="Orange Star" class="sea-star" style="--random-left: 12%; --random-top: 65%; --random-delay: 0.6s;">
-            <img src="images/yellow.png" alt="Yellow Star" class="sea-star" style="--random-left: 85%; --random-top: 55%; --random-delay: 0.9s;">
-            <img src="images/violet.png" alt="Violet Star" class="sea-star" style="--random-left: 25%; --random-top: 40%; --random-delay: 1.2s;">
-            <img src="images/orange.png" alt="Orange Star" class="sea-star" style="--random-left: 70%; --random-top: 70%; --random-delay: 1.5s;">
+            <img src="../images/yellow.png" alt="Yellow Star" class="sea-star" style="--random-left: 8%; --random-top: 15%; --random-delay: 0s;">
+            <img src="../images/violet.png" alt="Violet Star" class="sea-star" style="--random-left: 75%; --random-top: 25%; --random-delay: 0.3s;">
+            <img src="../images/orange.png" alt="Orange Star" class="sea-star" style="--random-left: 12%; --random-top: 65%; --random-delay: 0.6s;">
+            <img src="../images/yellow.png" alt="Yellow Star" class="sea-star" style="--random-left: 85%; --random-top: 55%; --random-delay: 0.9s;">
+            <img src="../images/violet.png" alt="Violet Star" class="sea-star" style="--random-left: 25%; --random-top: 40%; --random-delay: 1.2s;">
+            <img src="../images/orange.png" alt="Orange Star" class="sea-star" style="--random-left: 70%; --random-top: 70%; --random-delay: 1.5s;">
     </div>
 
     <!-- Footer -->
     <div id="footer-placeholder"></div>
-    <script src="js/footer-loader.js"></script>
+    <script src="../js/footer-loader.js"></script>
     
     <script>
 
@@ -237,6 +281,6 @@
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>
