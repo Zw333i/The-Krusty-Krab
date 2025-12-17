@@ -123,7 +123,7 @@ krusty krab/
 │   └── KrabbyPatty.ttf        # Custom Krabby Patty font
 │
 ├── images/
-│   ├── ray.png                # Manta ray decoration
+│   ├── ray.png                # Light Ray
 │   ├── krabby patty.png       # Hero image
 │   ├── yellow.png             # Yellow sea star
 │   ├── violet.png             # Violet sea star
