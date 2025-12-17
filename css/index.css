@@ -466,6 +466,19 @@ body {
     .card-text {
         font-size: 1.15rem;
     }
+
+    .krabby-patty {
+        width: 750px;
+        display: block;
+        margin: 0 auto;
+        margin-left: -450px;
+    }
+
+    .spongebob-arm {
+        width: 460px;
+        left: -500px;
+        top: 80px;
+    }
 }
 
 /* Responsive - Tablet */
@@ -814,12 +827,3 @@ body {
     }
 }
 
-@media (min-width: 1920px){
-
-    .krabby-patty {
-        width: 380px;
-        margin-top: -40px;
-        margin-left: -300px;
-    }
-    
-}
